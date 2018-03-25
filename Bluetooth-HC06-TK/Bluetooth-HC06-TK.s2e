@@ -1,0 +1,52 @@
+{	"extensionName": "Bluetooth-HC06-TK",
+	"description": "Controlador Bluetooth HC06, modificado para Tecnokits",
+	"version": "1.0",
+	"author": "Taller de Prometeo",
+	"homepage": "https://github.com/prometteo/Bluetooth-hc06-tk",
+	"sort":0,
+	"javascriptURL":"js/bluetoothhc.js",
+	"firmware":"1.0",
+	"extensionPort":0,
+	"blockSpecs": [
+		[
+			"w",
+			"Bluetooth-HC06 TK : TX : %n RX : %n Nom : %s Code Pin : %n)",
+			"inithc",
+			"4",
+			"2",
+			"Tecnokits",
+			"1234",
+			{
+				"setup":"",
+				"inc":"\n#include \"bluetoothhc.h\"",
+				"def":"BluetoothClassHC bt;\n",
+				"work":"bt.inithc({0},{1},{2},{3});\n",
+				"loop":"bt.bluetoothLoopHc();\n"
+			}
+		],
+		[
+			"b",
+			"¿datos disponibles en bt?",
+			"isAvailable",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bt.dataLineAvailableHc()",
+				"loop":""
+			}
+		],
+		[
+			"R",
+			"leer bt",
+			"readLine",
+			{
+				"setup":"",
+				"inc":"",
+				"def":"",
+				"work":"bt.readDataLineHc()",
+				"loop":""
+			}
+		]
+	]
+}
